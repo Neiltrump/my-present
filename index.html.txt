@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>正在加载中...</title>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; }
+        video { width: 100%; height: 100%; object-fit: contain; }
+        #overlay { position: absolute; color: white; font-size: 20px; cursor: pointer; text-align: center; z-index: 10; }
+    </style>
+</head>
+<body>
+    <div id="overlay">点击进入页面查看内容...</div>
+
+    <video id="v" loop playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <script>
+        const v = document.getElementById('v');
+        const o = document.getElementById('overlay');
+        
+        // 当用户点击屏幕任何位置
+        document.body.onclick = function() {
+            o.style.display = 'none'; // 隐藏文字
+            v.play();                 // 播放视频
+            v.muted = false;          // 开启声音
+        };
+    </script>
+</body>
+</html>
